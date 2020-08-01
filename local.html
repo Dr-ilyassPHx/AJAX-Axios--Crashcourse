@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch Jason users</title>
+</head>
+
+<body>
+
+
+    <h1>user</h1>
+    <button id="b-user">Get user</button>
+    <div id="user"></div>
+    <br><br><br>
+    <h1>users</h1>
+    <button id="b-users">Get users</button>
+    <div id="users"></div>
+
+    <script>
+        document.getElementById('b-user').addEventListener('click', loadUser)
+        document.getElementById('b-users').addEventListener('click', loadUsers)
+
+
+        function loadUser() {
+            xhr = new XMLHttpRequest()
+            xhr.open('GEt', 'user.json', true)
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    var user = JSON.parse(this.responseText)
+                    console.log(user.name)
+                    var result = ''
+                    result += `<ul><li>${user.name}</li>
+                        <li>${user.phone}</li>
+                        <li>${user.email}</li></ul>`
+                    document.getElementById('user').innerHTML = result
+                } else {
+                    console.log('something went wrong')
+                }
+            }
+            xhr.send()
+
+        }
+
+        function loadUsers() {
+            xhr = new XMLHttpRequest()
+            xhr.open('GEt', 'users.json', true)
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    var users = JSON.parse(this.responseText)
+                    console.log(users)
+
+                    var result = ''
+                    for (var u in users) {
+                        // console.log(users[u])
+                        result += `<ul><li>${users[u].name}</li>
+                        <li>${users[u].phone}</li>
+                        <li>${users[u].email}</li></ul>`
+                    }
+                    document.getElementById('users').innerHTML = result
+                } else {
+                    console.log('something went wrong')
+                }
+            }
+            xhr.send()
+
+        }
+    </script>
+</body>
+
+</html>

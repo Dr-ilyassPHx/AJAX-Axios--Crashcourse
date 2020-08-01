@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Github users</title>
+</head>
+
+<body>
+    <h1>Github Users</h1>
+    <button id="Gbutton">Get Github users</button>
+    <div id="users"></div>
+
+    <script>
+        document.getElementById('Gbutton').addEventListener('click', loadGithub)
+
+        function loadGithub() {
+            req = new XMLHttpRequest()
+            req.open('GET', 'https://api.github.com/users', true)
+            req.onload = function() {
+                if (req.status == 200) {
+                    console.log('success')
+                    var Github_users = JSON.parse(this.responseText)
+                    div = ''
+                    for (var key in Github_users) {
+                        div += `  <div class="user">
+                                  <img src="${Github_users[key].avatar_url}" alt="" width='70' height='70'>
+                                     <ul>
+                                        <li>followers_url : ${Github_users[key].followers_url}</li>
+                                         <li>${Github_users[key].login}</li>
+                                     </ul>
+                                   </div>`
+                    }
+                    document.getElementById('users').innerHTML = div
+                } else {
+                    console.log('something went wrong')
+                }
+
+            }
+            req.send()
+        }
+    </script>
+</body>
+
+</html>
