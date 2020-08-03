@@ -17,3 +17,165 @@ button:hover {
     background-color: #1c6de6;
     color: white;
 }
+
+
+/* ------ AJAX ------ */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.ajax-header nav {
+    background-color: #192a56;
+    height: 140px;
+    width: max;
+    padding-top: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.ajax-navbar ul li {
+    color: red;
+    text-align: center;
+}
+
+.menu {
+    color: white;
+    font-size: 5.1em;
+}
+
+
+/*---------Form---------*/
+
+.form-section {
+    height: 300px;
+    width: 900px;
+    margin-left: 10%;
+    margin-top: 10px;
+    border: 10px solid white;
+    border-radius: 20px;
+    background-color: white;
+    -webkit-box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+    -moz-box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+    box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+}
+
+.form {
+    padding: 50px 0 0 80px;
+}
+
+.get {
+    margin-top: 2%;
+    margin-bottom: 0;
+    margin-left: 9%;
+    font-size: 2.5em;
+    border-bottom: 2px solid black;
+    width: 920px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.inputs {
+    height: 50px;
+    width: 500px;
+    border-radius: 5px;
+    font-size: 1.4em;
+    padding-left: 10px;
+}
+
+.inputs::placeholder {
+    letter-spacing: 1.2pt;
+    padding-left: 20px;
+    font-size: medium;
+}
+
+.submit {
+    background-color: #2f3640;
+    color: white;
+    border-radius: 10px;
+    width: 120px;
+    height: 48px;
+    font-weight: 800;
+    margin-left: 45%;
+    letter-spacing: 1pt;
+    font-size: 1.2em;
+}
+
+.submit:hover {
+    color: #2f3640;
+    background-color: aliceblue;
+    font-weight: 800;
+    border: 1px solid #2f3640;
+}
+
+.load {
+    background-color: aliceblue;
+    color: #00a8ff;
+    border-radius: 10px;
+    width: 200px;
+    height: 48px;
+    font-weight: 800;
+    margin-left: 55%;
+    letter-spacing: 1pt;
+    font-size: 1.2em;
+    border: 1px solid #00a8ff;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+.load:hover {
+    color: aliceblue;
+    background-color: #00a8ff;
+    font-weight: 800;
+}
+
+#result {
+    margin-left: 10%;
+    border: 1px solid #00a8ff;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 900px;
+    height: max-content;
+    -webkit-box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+    -moz-box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+    box-shadow: 4px 1px 24px 20px rgba(220, 221, 225, 1);
+}
+
+table {
+    border-spacing: 5px;
+    width: 70%;
+    margin-left: 10%;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    border-radius: 70px;
+}
+
+th {
+    background-color: #00a8ff;
+    color: white;
+}
+
+th,
+td {
+    padding: 15px;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+th {
+    text-align: left;
+    border-radius: 70px;
+    height: 50px;
+}
+
+tr:hover {
+    background-color: #81eeee;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

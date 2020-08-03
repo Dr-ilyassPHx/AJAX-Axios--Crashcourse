@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Github users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="ajax-header">
+        <nav class="ajax-navbar">
+            <span class="menu">Let's Learn AJAX with PHP</span>
+        </nav>
+    </header>
+    <br><br>
+
+    <section class="form-section">
+        <h2>normal GET</h2>
+        <form method="GET" action="validate.php" class="form">
+            <h2>Name:</h2>
+            <input class="inputs" type="text" placeholder="Name" onfocus="this.select()">
+
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </section>
+    <br><br><br>
+    <section class="form-section">
+        <h2>AJAX GET</h2>
+        <form method="GET" action="validate.php" class="form" id="ajax-get">
+            <h2>Name:</h2>
+            <input id="name" class="inputs" type="text" placeholder="Name" onfocus="this.select()">
+
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </section>
+
+    <br><br><br>
+    <section class="form-section">
+        <h2>AJAX POST</h2>
+        <form method="POST" action="validate.php" class="form" id="ajax-post">
+            <h2>Name:</h2>
+            <input id="pname" class="inputs" type="text" placeholder="Name" onfocus="this.select()">
+
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </section>
+
+
+
+
+    <script>
+        //  PHP
+        document.getElementById('ajax-get').addEventListener('submit', getPhp)
+
+        function getPhp(e) {
+            e.preventDefault()
+            var name = document.getElementById('name').value
+            req = new XMLHttpRequest()
+            req.open('GET', 'validate.php?name=' + name, true)
+            req.onload = function() {
+                if (req.status == 200) {
+                    console.log('success', this.responseText)
+
+                } else {
+                    console.log('something went wrong')
+                }
+
+            }
+            req.send()
+        }
+
+        document.getElementById('ajax-post').addEventListener('submit', postPhp)
+
+        function postPhp(e) {
+            e.preventDefault();
+            var name = document.getElementById('pname').value
+            var params = "name=" + name
+            xhr = new XMLHttpRequest()
+            xhr.open('POST', 'validate.php', true)
+
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+            xhr.onload = function() {
+                console.log(this.responseText)
+            }
+
+            xhr.send(params)
+
+
+        }
+    </script>
+</body>
+
+</html>

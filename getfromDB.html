@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch PHP mySQL DB users</title>
+</head>
+
+<body>
+
+
+    <h1>user</h1>
+    <button id="b-user">Get user</button>
+    <div id="user"></div>
+
+    <script>
+        document.getElementById('b-user').addEventListener('click', loadUsers)
+
+
+
+        function loadUsers() {
+            xhr = new XMLHttpRequest()
+            xhr.open('GEt', 'fetchDB.php', true)
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    var users = JSON.parse(this.responseText)
+                    console.log(users)
+
+                    var result = ''
+                    for (var u in users) {
+                        // console.log(users[u])
+                        result += `<ul>
+                        <li>${users[u].id}</li>
+                        <li>${users[u].name}</li></ul>`
+                    }
+                    document.getElementById('user').innerHTML = result
+                } else {
+                    console.log('something went wrong')
+                }
+            }
+            xhr.send()
+
+        }
+    </script>
+</body>
+
+</html>

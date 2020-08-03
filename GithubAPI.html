@@ -5,12 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GET Github users</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Github Users</h1>
+    <header class="ajax-header">
+        <nav class="ajax-navbar">
+            <span class="menu">Let's Learn AJAX</span>
+        </nav>
+    </header>
+
+
+
+    <h2>Github Users</h2>
     <button id="Gbutton">Get Github users</button>
     <div id="users"></div>
+    <!--///////// PHP validation ///////-->
+    <h1>PHP file</h1>
+    <button id="php-button">Get name in php</button>
+    <div id="php-user"></div>
 
     <script>
         document.getElementById('Gbutton').addEventListener('click', loadGithub)
@@ -33,6 +46,35 @@
                                    </div>`
                     }
                     document.getElementById('users').innerHTML = div
+                } else {
+                    console.log('something went wrong')
+                }
+
+            }
+            req.send()
+        }
+
+        //  PHP
+        document.getElementById('php-button').addEventListener('click', getPhp)
+
+        function getPhp() {
+            req = new XMLHttpRequest()
+            req.open('GET', 'validate.php?name=curry', true)
+            req.onload = function() {
+                if (req.status == 200) {
+                    console.log('success', this.responseText)
+                        /* var Github_users = JSON.parse(this.responseText)
+                    div = ''
+                    for (var key in Github_users) {
+                        div += `  <div class="user">
+                                  <img src="${Github_users[key].avatar_url}" alt="" width='70' height='70'>
+                                     <ul>
+                                        <li>followers_url : ${Github_users[key].followers_url}</li>
+                                         <li>${Github_users[key].login}</li>
+                                     </ul>
+                                   </div>`
+                    }
+                    document.getElementById('php-users').innerHTML = div */
                 } else {
                     console.log('something went wrong')
                 }
